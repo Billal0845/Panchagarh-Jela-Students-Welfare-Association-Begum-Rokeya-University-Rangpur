@@ -1,4 +1,10 @@
 import { createInertiaApp, router } from "@inertiajs/react";
+import "./bootstrap";
+import "../css/app.css";
+import "@fontsource/poppins";
+import "@fontsource/poppins/700.css";
+import "@fontsource/hind-siliguri";
+import "@fontsource/hind-siliguri/700.css";
 import { createRoot } from "react-dom/client";
 import NProgress from "nprogress";
 
