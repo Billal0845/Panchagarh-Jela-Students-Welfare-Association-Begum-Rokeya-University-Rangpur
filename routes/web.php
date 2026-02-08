@@ -5,6 +5,7 @@ use App\Http\Controllers\VisitorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SponsorController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\MemberController;
 
 Route::get('/', [VisitorController::class, 'home']);
 
@@ -34,6 +35,8 @@ Route::put('/admin/sponsors/{id}', [SponsorController::class, 'update']);
 
 
 Route::get('/sponsor/{id}', [VisitorController::class, 'show']);
-
-
 Route::get('/member/congratulation_card', [BannerController::class, 'showCardCongratulation'])->name('member.card');
+
+
+Route::resource('members', MemberController::class);
+Route::get('members/export/pdf', [MemberController::class, 'exportPdf']);

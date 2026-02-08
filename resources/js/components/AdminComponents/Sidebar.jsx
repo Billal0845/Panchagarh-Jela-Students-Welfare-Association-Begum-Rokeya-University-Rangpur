@@ -6,6 +6,7 @@ import { IoHome } from "react-icons/io5";
 import { MdSettings, MdLightMode, MdDarkMode } from "react-icons/md";
 import { GrAnnounce } from "react-icons/gr";
 import { GoSponsorTiers } from "react-icons/go";
+import { IoIosPeople } from "react-icons/io";
 
 // ... (imports remain the same)
 
@@ -46,6 +47,18 @@ function Sidebar({ collapsed, setCollapsed, darkMode, toggleDarkMode }) {
                         className={`transition-opacity duration-300 text-sm whitespace-nowrap ${collapsed ? "opacity-0 group-hover:opacity-100" : "opacity-100"}`}
                     >
                         Dashboard
+                    </span>
+                </Link>
+
+                <Link
+                    href="/members"
+                    className="flex items-center gap-2 px-3 py-2 text-gray-700 dark:text-gray-300 rounded hover:bg-blue-50 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400 transition-colors overflow-hidden"
+                >
+                    <IoIosPeople size={20} className="shrink-0" />
+                    <span
+                        className={`transition-opacity duration-300 text-sm whitespace-nowrap ${collapsed ? "opacity-0 group-hover:opacity-100" : "opacity-100"}`}
+                    >
+                        Members
                     </span>
                 </Link>
 
