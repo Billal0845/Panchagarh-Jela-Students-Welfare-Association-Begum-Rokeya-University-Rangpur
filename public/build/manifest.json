@@ -96,7 +96,7 @@
     "src": "node_modules/@fontsource/poppins/files/poppins-latin-ext-700-normal.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-DhY9czNR.css",
+    "file": "assets/app-DgiTHXS4.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -105,13 +105,13 @@
     ]
   },
   "resources/js/app.jsx": {
-    "file": "assets/app-BqetI02D.js",
+    "file": "assets/app-bnL_jb38.js",
     "name": "app",
     "src": "resources/js/app.jsx",
     "isEntry": true,
     "css": [
       "assets/app-D0Zd6G8d.css",
-      "assets/app-DhY9czNR.css"
+      "assets/app-DgiTHXS4.css"
     ],
     "assets": [
       "assets/poppins-devanagari-400-normal-CJDn6rn8.woff2",

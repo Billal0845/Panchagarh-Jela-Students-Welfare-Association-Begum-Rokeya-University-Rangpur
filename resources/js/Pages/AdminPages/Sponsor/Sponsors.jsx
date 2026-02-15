@@ -23,7 +23,7 @@ function Sponsor({ sponsors }) {
                         Our Legends
                     </h1>
                     <p className="text-slate-500 dark:text-slate-400 text-sm">
-                        Manage the pillars of our organization.
+                        Manage the pillars of our Jelasomity.
                     </p>
                 </div>
                 <div className="flex gap-3">
