@@ -1,18 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sponsors List</title>
+    <meta charset="UTF-8">
     <style>
-        body { font-family: sans-serif; font-size: 12px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #130e0e; padding: 8px; text-align: left; }
-        th { bg-color: #f2f2f2; font-weight: bold; }
-        .photo { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
-        h2 { text-align: center; color: #0d9488; }
+        /* Modern CSS works perfectly here */
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap');
+
+        body { 
+            font-family: 'Hind Siliguri', sans-serif; 
+            padding: 20px;
+        }
+        
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 20px;
+        }
+
+        th, td { 
+            border: 1px solid #291a1a; 
+            padding: 5px; 
+            text-align: left; 
+        }
+
+        .photo { 
+            width: 40px; 
+            height: 40px; 
+            border-radius: 50%; 
+            object-fit: cover;
+        }
+        
+        h2 { color: #0d9488; text-align: center; }
     </style>
 </head>
 <body>
-    <h2>Our Legends (Sponsors List)</h2>
+    <h2>Sponsors List</h2>
     <table>
         <thead>
             <tr>
@@ -27,16 +49,17 @@
             @foreach($sponsors as $sponsor)
             <tr>
                 <td>
-                    @if($sponsor['photo'])
-                        <img src="{{ $sponsor['photo'] }}" class="photo">
+                    @if($sponsor->photo)
+                        {{-- Use public_path for local files --}}
+                        <img src="{{ public_path('storage/' . $sponsor->photo) }}" class="photo">
                     @else
                         <span>No Photo</span>
                     @endif
                 </td>
-                <td><strong>{{ $sponsor['name'] }}</strong></td>
-                <td>{{ $sponsor['role'] }}</td>
-                <td>{{ $sponsor['phone'] }}</td>
-                <td>{{ $sponsor['location'] ?? 'N/A' }}</td>
+                <td><strong>{{ $sponsor->name }}</strong></td>
+                <td>{{ $sponsor->role }}</td>
+                <td>{{ $sponsor->phone }}</td>
+                <td>{{ $sponsor->location_text }}</td>
             </tr>
             @endforeach
         </tbody>

@@ -6,7 +6,8 @@ use App\Models\Sponsor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
-use Barryvdh\DomPDF\Facade\Pdf;
+use Spatie\LaravelPdf\Facades\Pdf;
+use Spatie\Browsershot\Browsershot;
 
 class SponsorController extends Controller
 {
@@ -114,28 +115,17 @@ class SponsorController extends Controller
     {
         $sponsors = Sponsor::orderBy('name', 'asc')->get();
 
-        // Prepare data with Base64 images for the PDF
-        $data = $sponsors->map(function ($sponsor) {
-            $path = public_path('storage/' . $sponsor->photo);
-            $base64 = '';
+        return Pdf::view('pdf.sponsors', ['sponsors' => $sponsors])
+            ->withBrowsershot(function (Browsershot $browsershot) {
+                $browsershot->noSandbox()
+                    ->setOption('args', ['--disable-web-security']) // Helpful for local images
+                    ->windowSize(1200, 800);
 
-            if ($sponsor->photo && file_exists($path)) {
-                $type = pathinfo($path, PATHINFO_EXTENSION);
-                $imageData = file_get_contents($path);
-                $base64 = 'data:image/' . $type . ';base64,' . base64_encode($imageData);
-            }
-
-            return [
-                'name' => $sponsor->name,
-                'role' => $sponsor->role,
-                'phone' => $sponsor->phone,
-                'location' => $sponsor->location_text,
-                'photo' => $base64,
-            ];
-        });
-
-        $pdf = Pdf::loadView('pdf.sponsors', ['sponsors' => $data]);
-
-        return $pdf->download('sponsors_list.pdf');
+                // If it still fails, ONLY THEN uncomment the line below and 
+                // make sure the path is correct for your PC:
+                // $browsershot->setChromePath('C:\Program Files (x86)\Google\Chrome\Application\chrome.exe');
+            })
+            ->name('sponsors_list.pdf')
+            ->download();
     }
 }
