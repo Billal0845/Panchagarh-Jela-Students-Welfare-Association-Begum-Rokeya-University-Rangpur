@@ -47,7 +47,12 @@ class MemberController extends Controller
             'batch' => 'required|integer',
             'department' => 'required|string',
             'upozela' => 'required|string',
-            'phone' => 'required|string|unique:members,phone',
+            'phone' => [
+                'required',
+                'string',
+                'unique:members,phone',
+                'regex:/^01[3-9][0-9]{8}$/',
+            ],
             'blood_group' => 'required|string',
             'has_job' => 'nullable|boolean',
             'job_post' => 'nullable|string|required_if:has_job,true',

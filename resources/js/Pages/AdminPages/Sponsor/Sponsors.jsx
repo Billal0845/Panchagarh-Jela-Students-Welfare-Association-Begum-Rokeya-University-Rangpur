@@ -9,6 +9,10 @@ function Sponsor({ sponsors }) {
         }
     };
 
+    const handleExportPDF = () => {
+        window.open("/admin/sponsors/export-pdf", "_blank");
+    };
+
     return (
         <>
             <Head title="Sponsors List" />
@@ -19,27 +23,51 @@ function Sponsor({ sponsors }) {
                         Our Legends
                     </h1>
                     <p className="text-slate-500 dark:text-slate-400 text-sm">
-                        Manage the pillars of your organization.
+                        Manage the pillars of our organization.
                     </p>
                 </div>
-                <Link
-                    href="/admin/sponsors/create"
-                    className="bg-teal-600 hover:bg-teal-700 text-white px-5 py-2.5 rounded-lg font-semibold transition flex items-center gap-2 shadow-lg shadow-teal-500/20"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
+                <div className="flex gap-3">
+                    {/* PDF Export Button */}
+                    <button
+                        onClick={handleExportPDF}
+                        className="bg-slate-700 hover:bg-slate-800 text-white px-5 py-2.5 rounded-lg font-semibold transition flex items-center gap-2 shadow-lg shadow-slate-500/20"
                     >
-                        <path
-                            fillRule="evenodd"
-                            d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-                            clipRule="evenodd"
-                        />
-                    </svg>
-                    Add New Sponsor
-                </Link>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                            />
+                        </svg>
+                        Export PDF
+                    </button>
+
+                    <Link
+                        href="/admin/sponsors/create"
+                        className="bg-teal-600 hover:bg-teal-700 text-white px-5 py-2.5 rounded-lg font-semibold transition flex items-center gap-2 shadow-lg shadow-teal-500/20"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                        >
+                            <path
+                                fillRule="evenodd"
+                                d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                                clipRule="evenodd"
+                            />
+                        </svg>
+                        Add New Sponsor
+                    </Link>
+                </div>
             </div>
 
             <div className="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">

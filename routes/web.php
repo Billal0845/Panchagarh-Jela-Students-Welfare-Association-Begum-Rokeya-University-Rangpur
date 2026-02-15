@@ -31,6 +31,7 @@ Route::get('/admin/sponsors/create', [SponsorController::class, 'create']);
 Route::post('/admin/sponsors', [SponsorController::class, 'store']);
 Route::get('/admin/sponsors/{id}/edit', [SponsorController::class, 'edit']);
 Route::put('/admin/sponsors/{id}', [SponsorController::class, 'update']);
+Route::get('/admin/sponsors/export-pdf', [SponsorController::class, 'exportPDF']);
 
 
 

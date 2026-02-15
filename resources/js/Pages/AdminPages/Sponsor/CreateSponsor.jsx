@@ -89,16 +89,21 @@ const CreateSponsor = () => {
                             {/* Phone */}
                             <div>
                                 <label className="block text-sm font-medium mb-1">
-                                    Phone (Optional)
+                                    Phone *
                                 </label>
                                 <input
                                     type="text"
-                                    className="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-transparent outline-none focus:border-teal-500"
+                                    className={`w-full p-2.5 rounded-lg border bg-transparent outline-none transition ${errors.phone ? "border-red-500" : "border-slate-300 dark:border-slate-600 focus:border-teal-500"}`}
                                     value={data.phone}
                                     onChange={(e) =>
                                         setData("phone", e.target.value)
                                     }
                                 />
+                                {errors.phone && (
+                                    <div className="text-red-500 text-xs mt-1">
+                                        {errors.phone}
+                                    </div>
+                                )}
                             </div>
 
                             {/* Email */}
