@@ -2,7 +2,7 @@ import React from "react";
 import AdminLayout from "../../../layouts/AdminLayout/AdminLayout";
 import { Head, Link, router } from "@inertiajs/react";
 
-function Sponsor({ sponsors }) {
+function Sponsors({ sponsors }) {
     const handleDelete = (id) => {
         if (confirm("Are you sure you want to delete this legend?")) {
             router.delete(`/admin/sponsors/${id}`);
@@ -198,6 +198,6 @@ function Sponsor({ sponsors }) {
     );
 }
 
-Sponsor.layout = (page) => <AdminLayout children={page} />;
+Sponsors.layout = (page) => <AdminLayout children={page} />;
 
-export default Sponsor;
+export default Sponsors;

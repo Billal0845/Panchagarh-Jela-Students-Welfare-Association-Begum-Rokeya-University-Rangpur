@@ -8,6 +8,7 @@ import ShilpoKormo from "../components/ShilpoKormo";
 import Sponsors from "../components/Sponsors";
 import Alumni from "../components/Alumni";
 import Teachers from "../components/Teachers";
+import Introduction from "../components/Introduction";
 export default function LandingPage({ notice, sponsors }) {
     // 2. Hero Section Logic
     const [heroVisible, setHeroVisible] = useState(false);
@@ -22,6 +23,8 @@ export default function LandingPage({ notice, sponsors }) {
         <GeneralLayout>
             {/* 1. SEPARATE NOTICE COMPONENT */}
             <NoticeBoard text={noticeText} />
+
+            <Introduction />
 
             {/* <PresidentSecretary /> */}
 

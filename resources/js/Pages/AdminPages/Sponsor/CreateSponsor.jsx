@@ -203,10 +203,16 @@ const CreateSponsor = () => {
                             {/* Map Link */}
                             <div>
                                 <label className="block text-sm font-medium mb-1">
-                                    Google Maps URL
+                                    Google Maps Embed URL
                                 </label>
+                                <p className="text-xs text-slate-500 dark:text-slate-400 mb-2">
+                                    Go to Google Maps &gt; Share &gt; Embed a
+                                    map &gt; Copy ONLY the link inside{" "}
+                                    <strong>src="..."</strong>
+                                </p>
                                 <input
                                     type="url"
+                                    placeholder="https://www.google.com/maps/embed?pb=..."
                                     className="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-transparent outline-none focus:border-teal-500"
                                     value={data.map_location_link}
                                     onChange={(e) =>

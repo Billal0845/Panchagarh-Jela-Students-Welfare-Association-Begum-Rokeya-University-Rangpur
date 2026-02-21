@@ -72,7 +72,9 @@ function MemberForm() {
                             )}
                         </div>
                         <div className="flex-1">
-                            <label className={labelClass}>Profile Photo</label>
+                            <label className={labelClass}>
+                                Profile Photo Max 2MB
+                            </label>
                             <input
                                 type="file"
                                 onChange={handlePhotoChange}
